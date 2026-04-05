@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed, watch } from 'vue'
 
-const MOCK_TRSNSCTIONS = [
+const MOCK_TRANSACTIONS = [
     { id: 1, date: '2026-03-25', description: 'Tech Corp Salary', amount: 5200, type: 'income', category: 'Salary' },
   { id: 2, date: '2026-03-26', description: 'Apartment Rent', amount: 1500, type: 'expense', category: 'Housing' },
   { id: 3, date: '2026-03-28', description: 'Whole Foods', amount: 145, type: 'expense', category: 'Food' },
@@ -14,7 +14,7 @@ export const useFinanceStore = defineStore('finance', () => {
     const currentRole = ref('admin')
 
     const savedData = localStorage.getItem('finance_data')
-    const transactions = ref(savedData ? JSON.parse(savedData) : MOCK_TRSNSCTIONS)
+    const transactions = ref(savedData ? JSON.parse(savedData) : MOCK_TRANSACTIONS)
 
     watch(transactions, (newVal) => {
         localStorage.setItem('finance_data', JSON.stringify(newVal))
