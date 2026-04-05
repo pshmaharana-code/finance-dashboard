@@ -1,4 +1,5 @@
 # FinDash - Personal Finance Dashboard
+🟢 **Live Demo:** https://finance-dashboard-zeta-bay.vercel.app/
 
 A modern, responsive, and interactive frontend finance dashboard built to track financial activity, visualize spending patterns, and provide actionable insights. 
 
