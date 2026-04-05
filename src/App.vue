@@ -7,10 +7,10 @@ import Sidebar from './components/Sidebar.vue'
     
     <Sidebar />
 
-    <div class="flex-1 flex flex-col min-h-screen">
+    <div class="flex-1 flex flex-col min-h-screen relative">
       
-      <header class="h-16 border-b border-white/5 flex items-center justify-between px-8 sticky top-0 z-10 bg-[#0c0c0f]/80 backdrop-blur-md">
-        <h2 class="text-lg font-medium text-gray-200">Welcome Back, Piyush ✨</h2>
+      <header class="h-16 border-b border-white/5 flex items-center justify-between px-4 sm:px-8 sticky top-0 z-10 bg-[#0c0c0f]/80 backdrop-blur-md">
+        <h2 class="text-base sm:text-lg font-medium text-gray-200">Welcome Back, Piyush ✨</h2>
         
         <div class="flex items-center gap-4">
           <div class="hidden md:flex items-center bg-white/5 border border-white/10 rounded-full px-4 py-1.5">
@@ -22,13 +22,28 @@ import Sidebar from './components/Sidebar.vue'
         </div>
       </header>
 
-      <main class="p-8 flex-1 overflow-y-auto">
+      <main class="p-4 sm:p-8 flex-1 overflow-y-auto pb-24 md:pb-8">
         <router-view v-slot="{ Component }">
           <transition name="fade" mode="out-in">
             <component :is="Component" />
           </transition>
         </router-view>
       </main>
+
+      <nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#0c0c0f]/90 backdrop-blur-lg border-t border-white/5 flex justify-around items-center p-3 z-50">
+        <router-link to="/" class="flex flex-col items-center gap-1 text-gray-500 hover:text-gray-300 p-2 rounded-xl transition-all" active-class="!text-indigo-400 bg-indigo-500/10">
+          <span class="text-xl">📊</span>
+          <span class="text-[10px] font-medium">Dash</span>
+        </router-link>
+        <router-link to="/transactions" class="flex flex-col items-center gap-1 text-gray-500 hover:text-gray-300 p-2 rounded-xl transition-all" active-class="!text-indigo-400 bg-indigo-500/10">
+          <span class="text-xl">💳</span>
+          <span class="text-[10px] font-medium">Transact</span>
+        </router-link>
+        <router-link to="/insights" class="flex flex-col items-center gap-1 text-gray-500 hover:text-gray-300 p-2 rounded-xl transition-all" active-class="!text-indigo-400 bg-indigo-500/10">
+          <span class="text-xl">💡</span>
+          <span class="text-[10px] font-medium">Insights</span>
+        </router-link>
+      </nav>
 
     </div>
   </div>
